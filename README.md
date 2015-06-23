@@ -15,12 +15,14 @@ systems.  Git uses this to allow invocations like `git-commit` to behave the
 same as `git commit`.  Useful examples are plentiful, even though this
 technique is often unknown or overlooked.
 
-Single-call binaries, in contrast, only do one thing. These are the norm.
-Projects that can alternatively compile both multicall binaries as well as the
-subcommands as self-contained binaries often involve complicated makefiles and
-pre-processor magic to achieve that result. This provides the flexibility
-to deploy one or a few of the subcommands when desired (without the redundancy
-of the complete set of sub-commands).
+Single-call binaries, in contrast, only fulfill the behavior of a single
+utility. These are the norm. A `command subcommand` approach that is not aware
+of `os.Args[0]` is still a single-call binary). Projects that can alternatively
+compile both multicall binaries as well as the subcommands as self-contained
+binaries often involve complicated makefiles and pre-processor magic to achieve
+that result. This provides the flexibility to deploy one or a few of the
+subcommands when desired (without the redundancy of the complete set of
+sub-commands).
 
 Go has historically made this either-or compilation approach straightforward
 and trivial: no makefiles, no magic. This is accomplished by having one
